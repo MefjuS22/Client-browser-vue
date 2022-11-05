@@ -8,3 +8,21 @@ body {
     center fixed;
   background-size: cover;
 }
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #5c5c5c rgba(255, 255, 255, 0);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  padding-right: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #f4f5f7;
+  border-radius: 5px;
+}

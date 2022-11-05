@@ -89,7 +89,7 @@ export const store = createStore({
         email: "rhallawellb@dropbox.com",
       },
       {
-        id: 13,
+        id: 2137,
         name: "Trace",
         lastName: "Douglas",
         email: "lgribbinc@posterous.com",
@@ -104,14 +104,14 @@ export const store = createStore({
     editClient(state, client) {
       state.clientList.forEach((cl) => {
         if (cl.id == client.id) {
-          cl = client;
+          cl.name = client.name;
+          cl.lastName = client.lastName;
+          cl.email = client.email;
         }
       });
-      console.log(state.clientList.filter((cl) => cl.id == client.id));
     },
     addClient(state, client) {
       state.clientList.push(client);
-      console.log(state.clientList);
     },
   },
   actions: {
@@ -120,6 +120,9 @@ export const store = createStore({
     },
     async editClient({ commit }, client) {
       commit("editClient", client);
+    },
+    async addClient({ commit }, client) {
+      commit("addClient", client);
     },
   },
   modules: {},

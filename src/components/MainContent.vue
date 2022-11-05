@@ -1,29 +1,45 @@
 <template>
   <div class="container">
-    <form class="form" @submit.prevent="">
+    <form class="form" @submit.prevent="editClient(client)">
       <h2>Edit Client</h2>
-      <input
-        type="text"
-        placeholder="Name"
-        class="formInput"
-        v-model.lazy="client.name"
-      />
-      <input
-        type="text"
-        placeholder="Last Name"
-        class="formInput"
-        v-model.lazy="client.lastName"
-      />
-      <input
-        type="email"
-        placeholder="E-mail adress"
-        class="formInput"
-        v-model.lazy="client.email"
-      />
+      <label class="label">
+        Name
+        <input
+          type="text"
+          pattern=".*\S.*"
+          placeholder="Name"
+          ref="name"
+          class="formInput"
+          :value="client.name"
+          required
+        />
+      </label>
+      <label class="label">
+        Last Name
+        <input
+          type="text"
+          pattern=".*\S.*"
+          placeholder="Last Name"
+          ref="lastName"
+          class="formInput"
+          :value="client.lastName"
+          required
+        />
+      </label>
+      <label class="label">
+        E-mail
+        <input
+          type="email"
+          pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+          placeholder="E-mail adress"
+          ref="email"
+          class="formInput"
+          :value="client.email"
+          required
+        />
+      </label>
       <div class="formButtons">
-        <button class="button" type="saveBtn" @click="editClient(client)">
-          Save
-        </button>
+        <button class="button" type="submit">Save</button>
         <button
           class="button del-btn"
           type="deleteBtn"
@@ -51,7 +67,6 @@ export default {
           (client) => client.id == this.$route.params.id
         );
       },
-
       set(newValue) {
         this.$store.commit("editClient", newValue);
         console.log(newValue);
@@ -63,8 +78,14 @@ export default {
       this.$store.dispatch("deleteClient", client);
       this.$router.push("/");
     },
-    editClient(client) {
-      this.$store.dispatch("editClient", client);
+    async editClient() {
+      let newClient = {
+        id: this.$route.params.id,
+        name: this.$refs.name.value,
+        lastName: this.$refs.lastName.value,
+        email: this.$refs.email.value,
+      };
+      this.$store.dispatch("editClient", newClient);
     },
   },
 };
@@ -111,6 +132,10 @@ export default {
 .formInput:focus {
   outline: none;
   background: rgba(255, 255, 255, 0.47);
+}
+.label {
+  width: 80%;
+  max-width: 400px;
 }
 .formButtons {
   display: flex;

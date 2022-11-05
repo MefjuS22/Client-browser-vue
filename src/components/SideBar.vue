@@ -12,20 +12,21 @@ export default {
 <template>
   <aside class="sidebarWrapper">
     <h1>Clients</h1>
-    <router-link to="/profile/add"> Add Client </router-link>
-    <router-link
-      class="client"
-      v-for="(client, index) in $store.state.clientList"
-      :to="{ name: 'profile', params: { id: client.id } }"
-      :key="index"
-    >
-      <span class="link"> {{ client.name }} {{ client.lastName }}</span>
-    </router-link>
+    <div class="paddingBox">
+      <router-link
+        class="client"
+        v-for="(client, index) in $store.state.clientList"
+        :to="{ name: 'profile', params: { id: client.id } }"
+        :key="index"
+      >
+        <span class="link"> {{ client.name }} {{ client.lastName }}</span>
+      </router-link>
+    </div>
   </aside>
 </template>
 <style scoped>
 .sidebarWrapper {
-  padding: 20px;
+  padding: 0px 10px 0px 10px;
   margin: 20px;
   display: flex;
   flex-direction: column;
@@ -39,14 +40,24 @@ export default {
   backdrop-filter: blur(1.3px);
   -webkit-backdrop-filter: blur(1.3px);
   border: 1px solid rgba(255, 255, 255, 0.37);
+  color: #fff;
+}
+.paddingBox {
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 .client {
   width: 100%;
+  max-width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+
+  text-overflow: ellipsis " [..]";
 }
 .client :hover {
   background: rgba(54, 54, 54, 0.82);
