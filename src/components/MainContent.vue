@@ -1,36 +1,33 @@
 <template>
   <div class="container">
     <form class="form" @submit.prevent="">
+      <h2>Edit Client</h2>
       <input
         type="text"
         placeholder="Name"
         class="formInput"
-        v-model="$store.state.clientList[$store.state.selectedClient].name"
+        v-model.lazy="client.name"
       />
       <input
         type="text"
         placeholder="Last Name"
         class="formInput"
-        v-model="$store.state.clientList[$store.state.selectedClient].lastName"
+        v-model.lazy="client.lastName"
       />
       <input
         type="email"
         placeholder="E-mail adress"
         class="formInput"
-        v-model="$store.state.clientList[$store.state.selectedClient].email"
+        v-model.lazy="client.email"
       />
       <div class="formButtons">
-        <button
-          class="button"
-          type="saveBtn"
-          @click="$store.commit('editClient')"
-        >
+        <button class="button" type="saveBtn" @click="editClient(client)">
           Save
         </button>
         <button
           class="button del-btn"
           type="deleteBtn"
-          @click="$store.commit('deleteClient')"
+          @click="deleteClient(client)"
         >
           Delete
         </button>
@@ -41,6 +38,35 @@
 <script>
 export default {
   name: "MainContent",
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+  },
+  computed: {
+    client: {
+      get() {
+        return this.$store.state.clientList.find(
+          (client) => client.id == this.$route.params.id
+        );
+      },
+
+      set(newValue) {
+        this.$store.commit("editClient", newValue);
+        console.log(newValue);
+      },
+    },
+  },
+  methods: {
+    deleteClient(client) {
+      this.$store.dispatch("deleteClient", client);
+      this.$router.push("/");
+    },
+    editClient(client) {
+      this.$store.dispatch("editClient", client);
+    },
+  },
 };
 </script>
 <style scoped>
@@ -49,7 +75,8 @@ export default {
   flex-direction: row;
   justify-content: center;
   width: 70%;
-  height: 700px;
+  max-width: 1200px;
+  min-height: 600px;
   padding: 10px;
   margin: 10px;
 }
@@ -58,24 +85,32 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 80%;
+
   padding: 20px;
-  border: 1px solid rgb(131, 131, 131);
-  border-radius: 10px;
-  background-color: rgb(228, 228, 228);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.3px);
+  -webkit-backdrop-filter: blur(1.3px);
+  border: 1px solid rgba(255, 255, 255, 0.37);
 }
 .formInput {
   width: 80%;
+  max-width: 400px;
   height: 30px;
   margin: 10px;
   padding: 10px;
-  background-color: rgb(235, 235, 235);
-  border: 1px solid rgb(179, 179, 179);
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.31);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.4px);
+  -webkit-backdrop-filter: blur(3.4px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 .formInput:focus {
   outline: none;
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.47);
 }
 .formButtons {
   display: flex;
@@ -86,14 +121,35 @@ export default {
 }
 .button {
   width: 100px;
-  height: 30px;
+  height: 50px;
   margin: 10px;
-  background-color: rgb(86, 155, 245);
-  border: 1px solid rgb(74, 122, 255);
-  border-radius: 12px;
+  font-size: 1em;
+  font-weight: 700;
+  color: rgb(0, 44, 241);
+  background: rgba(1, 48, 255, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.7px);
+  -webkit-backdrop-filter: blur(6.7px);
+  border: 1px solid rgba(1, 48, 255, 0.3);
+  cursor: pointer;
+}
+.button:hover {
+  background: rgba(1, 48, 255, 0.7);
 }
 .del-btn {
-  background-color: rgb(255, 0, 0);
-  border: 1px solid rgb(255, 0, 0);
+  font-size: 1em;
+  font-weight: 700;
+  color: rgb(190, 0, 57);
+  background: rgba(248, 52, 52, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.7px);
+  -webkit-backdrop-filter: blur(6.7px);
+  border: 1px solid rgba(255, 97, 97, 0.06);
+  cursor: pointer;
+}
+.del-btn:hover {
+  background: rgba(248, 52, 52, 0.7);
 }
 </style>

@@ -1,10 +1,8 @@
 <script>
-import MainContent from "./components/MainContent.vue";
 import SideBar from "./components/SideBar.vue";
 export default {
   name: "App",
   components: {
-    MainContent,
     SideBar,
   },
 };
@@ -13,7 +11,7 @@ export default {
 <template>
   <div class="wrapper">
     <SideBar />
-    <MainContent />
+    <router-view />
   </div>
 </template>
 
@@ -26,7 +24,7 @@ export default {
 .wrapper {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
   justify-content: space-around;
 }
 </style>
