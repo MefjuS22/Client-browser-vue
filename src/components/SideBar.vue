@@ -7,6 +7,13 @@ export default {
       required: false,
     },
   },
+  computed: {
+    clients: {
+      get() {
+        return this.$store.state.clientList;
+      },
+    },
+  },
 };
 </script>
 <template>
@@ -15,9 +22,9 @@ export default {
     <div class="paddingBox">
       <router-link
         class="client"
-        v-for="(client, index) in $store.state.clientList"
+        v-for="client in clients"
         :to="{ name: 'profile', params: { id: client.id } }"
-        :key="index"
+        :key="client.id"
       >
         <span class="link"> {{ client.name }} {{ client.lastName }}</span>
       </router-link>
@@ -28,11 +35,13 @@ export default {
 .sidebarWrapper {
   padding: 0px 10px 0px 10px;
   margin: 20px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 30%;
   max-width: 500px;
+  height: 100%;
   max-height: 800px;
   background: rgba(255, 255, 255, 0.45);
   border-radius: 16px;
@@ -82,5 +91,11 @@ export default {
 }
 .link a {
   text-decoration: none;
+}
+@media (max-width: 768px) {
+  .sidebarWrapper {
+    width: 100%;
+    height: 400px;
+  }
 }
 </style>

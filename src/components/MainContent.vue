@@ -38,6 +38,17 @@
           required
         />
       </label>
+      <label class="label">
+        Quote
+        <textarea
+          type="text"
+          pattern=".*\S.*"
+          placeholder="Enter favourite quote"
+          ref="quote"
+          class="formInput formTextarea"
+          :value="client.quote"
+        />
+      </label>
       <div class="formButtons">
         <button class="button" type="submit">Save</button>
         <button
@@ -67,10 +78,10 @@ export default {
           (client) => client.id == this.$route.params.id
         );
       },
-      set(newValue) {
-        this.$store.commit("editClient", newValue);
-        console.log(newValue);
-      },
+      // set(newValue) {
+      //   this.$store.commit("editClient", newValue);
+      //   console.log(newValue);
+      // },
     },
   },
   methods: {
@@ -90,16 +101,20 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style>
 .container {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   width: 70%;
   max-width: 1200px;
-  min-height: 600px;
-  padding: 10px;
-  margin: 10px;
+  /* min-height: 300px; */
+  max-height: 800px;
+  height: 80%;
+  /* padding: 10px; */
+  /* margin: 10px; */
+  /* margin-top: 100px; */
 }
 .form {
   display: flex;
@@ -107,7 +122,7 @@ export default {
   justify-content: center;
   align-items: center;
   width: 80%;
-
+  height: 100%;
   padding: 20px;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
@@ -132,6 +147,10 @@ export default {
 .formInput:focus {
   outline: none;
   background: rgba(255, 255, 255, 0.47);
+}
+.formTextarea {
+  resize: none;
+  font-family: "Lato", sans-serif;
 }
 .label {
   width: 80%;
@@ -176,5 +195,17 @@ export default {
 }
 .del-btn:hover {
   background: rgba(248, 52, 52, 0.7);
+}
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    max-width: 500px;
+    height: 700px;
+    flex-direction: column;
+  }
+  .form {
+    width: 90%;
+    height: 100%;
+  }
 }
 </style>

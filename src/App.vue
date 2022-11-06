@@ -25,11 +25,20 @@ export default {
   box-sizing: border-box;
 }
 .wrapper {
+  /* margin-top: 60px; */
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    /* height: 100vh; */
+    flex-direction: column;
+  }
 }
 </style>

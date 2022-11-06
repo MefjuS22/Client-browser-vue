@@ -1,10 +1,9 @@
 <template>
   <nav class="navbar">
-    <ul>
-      <li class="navItem">
-        <router-link to="/profile/add"> Add Client </router-link>
-      </li>
-    </ul>
+    <li class="navItem"><router-link to="/"> ADMIN PANEL </router-link></li>
+    <li class="navItem">
+      <router-link to="/profile/add"> ADD CLIENT </router-link>
+    </li>
   </nav>
 </template>
 <script>
@@ -15,24 +14,28 @@ export default {
 <style>
 .navbar {
   background: rgb(73, 73, 73);
-  margin-bottom: -60px;
+  margin-bottom: 60px;
   height: 60px;
   display: flex;
-  padding: 0 20px 0 20px;
-  justify-content: flex-end;
+  padding: 0 10px 0 10px;
+  justify-content: space-between;
   align-items: center;
-  font-size: 1.2rem;
-  position: fixed;
+  font-size: 1rem;
+  /* position: fixed; */
   top: 0;
-  z-index: 50;
   width: 100%;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
-.navbar ul {
-  list-style-type: none;
+
+.navbar li {
+  display: inline-block;
+  margin: 0 10px 0 10px;
 }
 .navItem {
+  display: flex;
+  flex-direction: row;
   height: 40px;
+  /* width: 200px; */
   cursor: pointer;
   transition: all 0.3s ease;
   background: rgba(1, 48, 255, 0.5);
