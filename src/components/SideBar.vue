@@ -41,8 +41,7 @@ export default {
   align-items: center;
   width: 30%;
   max-width: 500px;
-  height: 100%;
-  max-height: 600px;
+  height: 600px;
   background: rgba(255, 255, 255, 0.45);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

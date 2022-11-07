@@ -51,13 +51,6 @@
       </label>
       <div class="formButtons">
         <button class="button" type="submit">Save</button>
-        <button
-          class="button del-btn"
-          type="deleteBtn"
-          @click="deleteClient(client)"
-        >
-          Delete
-        </button>
       </div>
     </form>
   </div>
@@ -165,7 +158,7 @@ export default {
   margin: 10px;
   font-size: 1em;
   font-weight: 700;
-  color: rgb(0, 44, 241);
+  color: #fff;
   background: rgba(1, 48, 255, 0.5);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -177,21 +170,6 @@ export default {
 }
 .button:hover {
   background: rgba(1, 48, 255, 0.7);
-}
-.del-btn {
-  font-size: 1em;
-  font-weight: 700;
-  color: rgb(190, 0, 57);
-  background: rgba(248, 52, 52, 0.5);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6.7px);
-  -webkit-backdrop-filter: blur(6.7px);
-  border: 1px solid rgba(255, 97, 97, 0.06);
-  cursor: pointer;
-}
-.del-btn:hover {
-  background: rgba(248, 52, 52, 0.7);
 }
 @media (max-width: 768px) {
   .container {

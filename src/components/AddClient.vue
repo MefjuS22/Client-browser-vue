@@ -139,7 +139,7 @@ export default {
   margin: 10px;
   font-size: 1em;
   font-weight: 700;
-  color: rgb(0, 44, 241);
+  color: #fff;
   background: rgba(1, 48, 255, 0.5);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -147,6 +147,7 @@ export default {
   -webkit-backdrop-filter: blur(6.7px);
   border: 1px solid rgba(1, 48, 255, 0.3);
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 .button:hover {
   background: rgba(1, 48, 255, 0.7);
