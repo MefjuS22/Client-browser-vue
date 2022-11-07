@@ -25,11 +25,10 @@ export default {
   box-sizing: border-box;
 }
 .wrapper {
-  /* margin-top: 60px; */
+  margin-top: 60px;
   display: flex;
   flex-direction: row;
   width: 100%;
-  /* height: 100vh; */
   justify-content: center;
   align-items: center;
 }
@@ -37,7 +36,6 @@ export default {
 @media (max-width: 768px) {
   .wrapper {
     width: 100%;
-    /* height: 100vh; */
     flex-direction: column;
   }
 }

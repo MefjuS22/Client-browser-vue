@@ -37,7 +37,7 @@ export default {
   height: 40px;
   /* width: 200px; */
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   background: rgba(1, 48, 255, 0.5);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -46,7 +46,7 @@ export default {
   border: 1px solid rgba(1, 48, 255, 0.3);
 }
 .navItem:hover {
-  background: rgba(1, 48, 255, 0.7);
+  background: rgba(1, 18, 92, 0.7);
 }
 .navItem a {
   color: white;

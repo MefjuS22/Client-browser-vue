@@ -66,13 +66,101 @@ export default {
         quote: this.$refs.quote.value,
       };
       this.$store.dispatch("addClient", newClient);
+      this.$router.push({ name: "profile", params: { id: newClient.id } });
     },
   },
 };
 </script>
 <style scoped>
+.container {
+  padding: 0px 10px 0px 10px;
+  margin: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  max-width: 1200px;
+  height: 100%;
+  max-height: 600px;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.3px);
+  -webkit-backdrop-filter: blur(1.3px);
+  border: 1px solid rgba(255, 255, 255, 0.37);
+  color: #fff;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  padding: 40px;
+  border-radius: 16px;
+}
+.formInput {
+  width: 80%;
+  max-width: 400px;
+  height: 30px;
+  margin: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.31);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.4px);
+  -webkit-backdrop-filter: blur(3.4px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.formInput:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.47);
+}
 .formTextarea {
   resize: none;
   font-family: "Lato", sans-serif;
+}
+.label {
+  width: 80%;
+  max-width: 400px;
+}
+.formButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+  margin: 10px;
+}
+.button {
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  font-size: 1em;
+  font-weight: 700;
+  color: rgb(0, 44, 241);
+  background: rgba(1, 48, 255, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.7px);
+  -webkit-backdrop-filter: blur(6.7px);
+  border: 1px solid rgba(1, 48, 255, 0.3);
+  cursor: pointer;
+}
+.button:hover {
+  background: rgba(1, 48, 255, 0.7);
+}
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    max-width: 500px;
+    height: 700px;
+    flex-direction: column;
+  }
+  .form {
+    width: 90%;
+    height: 100%;
+  }
 }
 </style>

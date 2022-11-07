@@ -4,9 +4,9 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
-  background: url(./pexels-eberhard-grossgasteiger-572897.jpg) no-repeat center
-    center fixed;
-  background-size: cover;
+  background: url(./pexels-francesco-ungaro-998641.jpg) no-repeat center center
+    fixed;
+  /* height: 100vh; */
 }
 * {
   scrollbar-width: auto;

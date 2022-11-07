@@ -78,10 +78,6 @@ export default {
           (client) => client.id == this.$route.params.id
         );
       },
-      // set(newValue) {
-      //   this.$store.commit("editClient", newValue);
-      //   console.log(newValue);
-      // },
     },
   },
   methods: {
@@ -101,20 +97,25 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .container {
+  padding: 0px 10px 0px 10px;
+  margin: 20px;
+  margin-top: 20px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   width: 70%;
   max-width: 1200px;
-  /* min-height: 300px; */
-  max-height: 800px;
-  height: 80%;
-  /* padding: 10px; */
-  /* margin: 10px; */
-  /* margin-top: 100px; */
+  height: 100%;
+  max-height: 600px;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.3px);
+  -webkit-backdrop-filter: blur(1.3px);
+  border: 1px solid rgba(255, 255, 255, 0.37);
+  color: #fff;
 }
 .form {
   display: flex;
@@ -123,13 +124,8 @@ export default {
   align-items: center;
   width: 80%;
   height: 100%;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.5);
+  padding: 40px;
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(1.3px);
-  -webkit-backdrop-filter: blur(1.3px);
-  border: 1px solid rgba(255, 255, 255, 0.37);
 }
 .formInput {
   width: 80%;
@@ -177,6 +173,7 @@ export default {
   -webkit-backdrop-filter: blur(6.7px);
   border: 1px solid rgba(1, 48, 255, 0.3);
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 .button:hover {
   background: rgba(1, 48, 255, 0.7);

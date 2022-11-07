@@ -18,7 +18,7 @@ export default {
 </script>
 <template>
   <aside class="sidebarWrapper">
-    <h1>Clients</h1>
+    <h2>Choose client to edit</h2>
     <div class="paddingBox">
       <router-link
         class="client"
@@ -35,14 +35,14 @@ export default {
 .sidebarWrapper {
   padding: 0px 10px 0px 10px;
   margin: 20px;
-  margin-top: 100px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 30%;
   max-width: 500px;
   height: 100%;
-  max-height: 800px;
+  max-height: 600px;
   background: rgba(255, 255, 255, 0.45);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
